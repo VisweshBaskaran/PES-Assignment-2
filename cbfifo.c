@@ -10,11 +10,16 @@
     #include <stddef.h>
     #include <stdint.h>
     #include "cbfifo.h"
+
     #define CAPACITY 256 //Max size of circular buffer
     #define READ_PTR_START 0 //Read pointer initial position
     #define WRITE_PTR_START 0 //Write pointer initial position
+
+    // Macros for ERROR CODES
     #define ENQ_BUF_IS_NULL 0 
     #define DQ_BUF_IS_NULL 0
+
+
 
 
     static uint8_t buffer[CAPACITY]; //statically initialized buffer array
