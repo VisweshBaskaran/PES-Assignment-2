@@ -19,9 +19,6 @@
     #define ENQ_BUF_IS_NULL 0 
     #define DQ_BUF_IS_NULL 0
 
-
-
-
     static uint8_t buffer[CAPACITY]; //statically initialized buffer array
     static size_t read_ptr = READ_PTR_START; 
     static size_t write_ptr = WRITE_PTR_START;
