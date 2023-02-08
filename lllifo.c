@@ -10,6 +10,7 @@
     #include "lllifo.h"
     #include <assert.h>
 
+    // Error Code macros
     #define PUSH_PASSED_INSTANCE_NULL -1 
     #define PUSH_PASSED_ELEMENT_NULL -1 
     #define ADDITIONAL_MALLOC_FAILED -1
@@ -35,6 +36,9 @@
     *lllifo_t *lifo is the containing structure 
     *lllifo_node_t *first is the first lllifo node which is stored in lifo->head
     *A for loop is used to append remaining capacity - 1 nodes to lifo->head
+    * Error codes: 
+    * When capacity < 0, NULL returned
+    * When malloc'd memory does not exist, NULL returned
     */
     lllifo_t *lllifo_create (int capacity)
     {
@@ -91,6 +95,10 @@
     * First by traversing through all existing nodes, availability of nodes is checked and pushed when a unused node is present. Increments length by 1and returns it.
     * Otherwise
     * Mallocs an instance of lllifo_t, appends it to end of lifo and pushes element. Increments both length and capacity by 1, and returns length.
+    * Error codes:
+    * When passed instance does not exist in memory, returns PUSH_PASSED_INSTANCE_NULL
+    * When passed element is NULL, return PUSH_PASSED_ELEMENT_NULL
+    * Failure to allocate memory for extra node, return ADDITIONAL_MALLOC_FAILED
     *
     */
     int lllifo_push(lllifo_t* lifo, void *element)
