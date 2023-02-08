@@ -99,7 +99,6 @@
     * When passed instance does not exist in memory, returns PUSH_PASSED_INSTANCE_NULL
     * When passed element is NULL, return PUSH_PASSED_ELEMENT_NULL
     * Failure to allocate memory for extra node, return ADDITIONAL_MALLOC_FAILED
-    *
     */
     int lllifo_push(lllifo_t* lifo, void *element)
     {
@@ -143,6 +142,9 @@
     * Otherwise
     * Traverses through all nodes to check for last used node to pop the data present in it
     * Capacity remains same after pop, length is decremented by 1
+    * Error Codes:
+    * When passed instance does not exist in memory, return NULL
+    * When no element or no linked list nodes exists, return NULL 
     */
     void *lllifo_pop(lllifo_t *lifo)
     {
@@ -178,6 +180,8 @@
     }
     /*
     * Frees the nodes of the linked list and containing structure
+    * Error Code:
+    * When passed instance does not exist in memory, exit the function
     */
     void lllifo_destroy(lllifo_t *lifo)
     {
@@ -198,6 +202,8 @@
     }
     /*
     * Returns the current length of the passed instance by accessing length struct element of containing structure
+    * Error Code:
+    * When passed instance does not exist in memory, return ERROR_CODE_LENGTH_OF_NULL_NODE
     */
     int lllifo_length(lllifo_t *lifo)
     {
@@ -207,6 +213,8 @@
     }
     /*
     * Returns the current capacity of the passed instance by accessing capacity struct element of containing structure
+    * Error Code:
+    * When passed instance does not exist in memory, return ERROR_CODE_LENGTH_OF_NULL_NODE
     */
     int lllifo_capacity(lllifo_t *lifo)
     {
